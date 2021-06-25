@@ -4,8 +4,8 @@ class ProductsController {
 
     this._alert = new Bind(
       new Alert(),
-      new AlertView($('#alertView')),
-      'message'
+      new AlertView($("#alertView")),
+      "message"
     );
 
     this.allProducts();
@@ -14,12 +14,12 @@ class ProductsController {
   allProducts() {
     // TODO: implementar
 
-    // let service = new ProductsServics();
+    // let service = new ProductsService();
     // service
     //   .allProducts()
     //   .then()
     //   .catch();
 
-    this._alert.message = 'ProductsController ainda não foi implementado.';
+    this._alert.message = "ProductsController ainda não foi implementado.";
   }
 }

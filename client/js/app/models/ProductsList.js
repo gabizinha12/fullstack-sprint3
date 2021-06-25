@@ -1,3 +1,8 @@
 class ProductsList {
-  // TODO: implementar
+  constructor() {
+    this._products = [];
+  }
+  get products() {
+    return [].concat(this._products);
+  }
 }

@@ -3,7 +3,7 @@ class ProductsService {
     this._http = new HttpService();
   }
 
-  allProducts() {
+async  allProducts() {
     // TODO: implementar
   }
 }
