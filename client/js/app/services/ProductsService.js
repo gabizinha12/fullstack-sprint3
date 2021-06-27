@@ -3,7 +3,18 @@ class ProductsService {
     this._http = new HttpService();
   }
 
-async  allProducts() {
-    // TODO: implementar
+  allProducts() {
+    return this._http
+      .getProducts("api/products")
+      .then((products) => {
+        return products.map(
+          (product) =>
+            new Product(product.image, product.description, product.price)
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+        throw new Error("Não foi possível obter os produtos");
+      });
   }
 }

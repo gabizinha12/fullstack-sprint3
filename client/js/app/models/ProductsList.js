@@ -5,4 +5,10 @@ class ProductsList {
   get products() {
     return [].concat(this._products);
   }
+  clearProducts() {
+    this._products = [];
+  }
+  addProducts(product) {
+    this._products.push(product);
+  }
 }

@@ -8,18 +8,31 @@ class ProductsController {
       "message"
     );
 
-    this.allProducts();
+    this._allProducts = new Bind(
+      new ProductsList(),
+      new ProductsView($("#products")),
+      "addProducts",
+      "clearProducts"
+    );
+    this.addProducts();
   }
 
-  allProducts() {
-    // TODO: implementar
-
-    // let service = new ProductsService();
-    // service
-    //   .allProducts()
-    //   .then()
-    //   .catch();
-
+  addProducts() {
+    let productsService = new ProductsService();
+    productsService
+      .allProducts()
+      .then((response) => {
+        response.forEach((products) => {
+          this._allProducts.addProducts(products);
+        });
+        this._alert.message = "Produtos importados com sucesso";
+      })
+      .catch((error) => {
+        this._alert.message = error;
+      });
     this._alert.message = "ProductsController ainda não foi implementado.";
+  }
+  clearProducts() {
+    this._allProducts.clearProducts();
   }
 }
