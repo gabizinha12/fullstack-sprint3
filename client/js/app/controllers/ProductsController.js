@@ -12,6 +12,7 @@ class ProductsController {
       new ProductsList(),
       new ProductsView($("#products")),
       "addProducts",
+      "filter",
       "clearProducts"
     );
     this.allProducts();
@@ -22,11 +23,14 @@ class ProductsController {
     const products = await productsService.getProducts();
     let data = products.map(
       (product) =>
-        new Product(product.image, product.description, product.price)
+        new Product(product.description, product.image, product.value)
     );
     this._products.addProducts(data);
   }
   clearProducts() {
     this._allProducts.clearProducts();
+  }
+  searchProducts(ths) {
+    this._products.filter(ths.value);
   }
 }

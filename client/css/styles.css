@@ -111,7 +111,8 @@ html input {
 .header__drawer--active {
   display: block;
 }
-.header__drawer .menu__title, .header__drawer .close__title {
+.header__drawer .menu__title,
+.header__drawer .close__title {
   text-transform: lowercase;
   font-size: 0.5625rem;
   font-weight: 400;
@@ -227,6 +228,7 @@ html input {
 }
 .main__products .products__list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 @media (max-width: 1200px) {
@@ -246,7 +248,8 @@ html input {
   max-width: 250px;
 }
 .main__products .products__card .card:hover {
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 .main__products .products__card .card__img {
   max-width: 100%;
@@ -300,10 +303,10 @@ html input {
   color: #000;
 }
 .footer__contact .contact__input:hover {
-  border-bottom: 2px solid #261E1E;
+  border-bottom: 2px solid #261e1e;
 }
 .footer__contact .contact__input:focus-within {
-  border-bottom: 2px solid #261E1E;
+  border-bottom: 2px solid #261e1e;
 }
 .footer__contact .contact__input::placeholder {
   font-style: italic;
@@ -447,7 +450,7 @@ html input {
 .footer__bottom .copyright__text {
   font-size: 0.5625rem;
   font-weight: 400;
-  color: #261E1E;
+  color: #261e1e;
 }
 .footer__bottom .copyright__stamp {
   margin: 0 auto;
