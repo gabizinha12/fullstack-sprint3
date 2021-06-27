@@ -1,29 +1,22 @@
 class HttpService {
-  getProducts(url) {
+  get(url) {
     return fetch(url, {
       method: "GET",
     })
       .then((response) => response.json())
-      .catch((err) => err.message);
+      .catch((err) => console.error(err));
   }
 
   post(url, data) {
-    return new Promise((resolve, reject) => {
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", url, true);
-      xhr.setRequestHeader("Content-type", "application/json");
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4) {
-          if (xhr.status == 200) {
-            resolve(JSON.parse(xhr.responseText));
-          } else {
-            reject(xhr.responseText);
-          }
-        }
-      };
-
-      // usando JSON.stringify para converter objeto em uma string no formato JSON.
-      xhr.send(JSON.stringify(data));
-    });
+    return fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        response.json();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }
